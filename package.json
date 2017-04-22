@@ -1,0 +1,39 @@
+{
+  "name": "ld38_game",
+  "version": "1.0.0",
+  "description": "ld38 game. [webpack project template based on a temlate by leandro cabrera <leandcabrera@gmail.com>] ",
+  "author": "ztiromoritz moritz.rebbert@udo.edu",
+  "main": "index.js",
+  "repository" : "",
+  "scripts": {
+    "dev": "webpack",
+    "deploy": "webpack --config webpack.production.config.js",
+    "test": "standard"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-polyfill": "^6.20.0",
+    "babel-preset-es2015": "^6.18.0",
+    "browser-sync": "^2.18.6",
+    "browser-sync-webpack-plugin": "^1.1.3",
+    "css-loader": "^0.26.2",
+    "eslint": "^3.13.1",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "expose-loader": "^0.7.1",
+    "file-loader": "^0.10.1",
+    "style-loader": "^0.13.2",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.2.0",
+    "webpack-dashboard": "^0.3.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "phaser-ce": "^2.7.3",
+    "webfontloader": "^1.6.27"
+  }
+}
