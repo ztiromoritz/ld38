@@ -4,7 +4,7 @@
   "description": "ld38 game. [webpack project template based on a temlate by leandro cabrera <leandcabrera@gmail.com>] ",
   "author": "ztiromoritz moritz.rebbert@udo.edu",
   "main": "index.js",
-  "repository" : "",
+  "repository": "",
   "scripts": {
     "dev": "webpack",
     "deploy": "webpack --config webpack.production.config.js",
@@ -32,6 +32,7 @@
     "webpack-dashboard": "^0.3.0"
   },
   "dependencies": {
+    "garfunkel": "file:../garfunkel",
     "lodash": "^4.17.4",
     "phaser-ce": "^2.7.3",
     "webfontloader": "^1.6.27"

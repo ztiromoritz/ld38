@@ -1,7 +1,9 @@
 import Phaser from 'phaser';
 
+
 import tilemap from 'assets/tilemap.json';
 import tiles from 'assets/tiles.png';
+import sprites from 'assets/32x32_spritesheet.png';
 
 import { centerGameObjects } from 'app/utils';
 
@@ -16,8 +18,10 @@ export default class extends Phaser.State {
         centerGameObjects([this.loaderBg, this.loaderBar]);
         this.load.setPreloadSprite(this.loaderBar);
 
-        //this.load.tilemap('tilemap', null, tilemap, Phaser.Tilemap.TILED_JSON);
-        //this.load.image('tiles', tiles);
+
+        this.load.tilemap('tilemap', null, tilemap, Phaser.Tilemap.TILED_JSON);
+        this.load.image('tiles', sprites);
+        this.load.spritesheet('sprites', sprites, 32, 32);
 
         //this.load.audio('clack', clack);
 

@@ -5,7 +5,7 @@ import loaderBar from 'assets/images/loader-bar.png';
 
 export default class extends Phaser.State {
     init() {
-        this.stage.backgroundColor = '#EDEEC9';
+        this.stage.backgroundColor = '#eeffee';
         this.fontsReady = false;
         this.fontsLoaded = this.fontsLoaded.bind(this);
     }
@@ -13,7 +13,7 @@ export default class extends Phaser.State {
     preload() {
         WebFont.load({
             google: {
-                //families: ['Bangers']
+                families: ['Bangers']
             },
             active: this.fontsLoaded
         });
