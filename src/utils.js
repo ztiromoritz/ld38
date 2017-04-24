@@ -43,7 +43,19 @@ export const getGIDs = (value, map, property)  => {
     if (result.length === 0)
         console.error("Error: No GIDs found! " + value);
     return result;
-}
+};
+
+
+
+export const getTileProperties = (gid, map) => {
+    for (let i = 0; i < map.tilesets.length; i++) {
+        var tileset = map.tilesets[i];
+        if (tileset.firstgid <= gid && gid < tileset.firstgid + tileset.total) {
+            return tileset.tileProperties[gid - tileset.firstgid] || {};
+        }
+    }
+    return {};
+};
 
 
 

@@ -5,15 +5,24 @@ import { Garfunkel } from 'garfunkel';
 const Segment = Garfunkel.Segment;
 const Vect = Garfunkel.Vect;
 
-
+//const color = 0xffaaee;
+const alpha = 1.0;
 export default class extends Phaser.Graphics {
 
-    constructor({ game, x1, y1, x2, y2, trafficLights }) {
-        console.log("Streets", x1, y1, x2, y2);
+    constructor({ game, x1, y1, x2, y2, trafficLights, color, streetMap , nextId}) {
+
         super(game, 0, 0);
-        this.lineStyle(config.streetWidth, 0xddddee, 1);
+        this.lineStyle(config.streetWidth, color, alpha);
         this.moveTo(x1, y1);
         this.lineTo(x2, y2);
+        this.lineStyle(1, color, 0.0);
+        this.beginFill( color, alpha);
+        this.drawCircle(x1,y1, config.streetWidth);
+        this.drawCircle(x2,y2, config.streetWidth);
+
+
+        this.streetMap = streetMap;
+        this.nextId = nextId;
 
         this.segment = new Segment(new Vect(x1, y1), new Vect(x2, y2));
         this.length = this.segment.length();
@@ -56,9 +65,19 @@ export default class extends Phaser.Graphics {
     addCar(car) {
         //Autos überholen sich nicht, also muss nur beim Einfügen sortiert werden.
         //FIXME: Das geht kaputt, wenn die Autos die Straße wechseln können
+
         this.cars.push(car);
-        //_.sortBy(this.cars, (car) => { return car.positionOnStreet; })
+        this.cars = _.orderBy(this.cars, ["positionOnStreet"], ['desc']);
     }
+
+    removeCar(car) {
+        _.pull(this.cars, car);
+    }
+
+    getNextStreet(){
+        return this.streetMap[this.nextId];
+    }
+
 
     // result can be null
     getCarInFront(car){
@@ -69,9 +88,7 @@ export default class extends Phaser.Graphics {
         return null;
     }
 
-    removeCar(car) {
-        _.pull(this.cars, car);
-    }
+
 
     update() {
 

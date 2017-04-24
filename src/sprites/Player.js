@@ -21,9 +21,9 @@ export default class extends Phaser.Sprite {
 
 
 
-        this.animations.add('idle', [36, 36, 36, 36, 36, 36, 36, 36, 36, 36, 37], 10, true);
-        this.animations.add('walk', [28, 29], 8, true);
-        this.animations.add('jump', [30], 10, true);
+        this.animations.add('idle', [45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 37], 10, true);
+        this.animations.add('walk', [32, 33], 8, true);
+        this.animations.add('jump', [28], 10, true);
         this.animations.play('idle');
     }
 

@@ -5,7 +5,7 @@ import config from 'app/config';
 export default class extends Phaser.Sprite {
 
     constructor({ game, x, y,  street, positionOnStreet }) {
-        super(game, -100, -100, 'sprites', 8 /*frame*/ );
+        super(game, -100, -100, 'sprites', 39 /*frame*/ );
         const v = street.getTrafficLightPosition(positionOnStreet, config.lightDistance);
         this.x = v.x;
         this.y = v.y;
@@ -22,9 +22,9 @@ export default class extends Phaser.Sprite {
 
     update() {
         if (this.red) {
-            this.frame = 8;
+            this.frame = 30;
         } else {
-            this.frame = 9;
+            this.frame = 38;
         }
     }
 
