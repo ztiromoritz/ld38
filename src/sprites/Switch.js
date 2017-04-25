@@ -40,7 +40,7 @@ export default class extends Phaser.Sprite {
             v2.y = this.player.y;
 
             if (v1.distance(v2) < config.switchDistance) {
-
+                this.game.sound.play('schalter');
                 this.trafficLight.toggle();
             }
         }

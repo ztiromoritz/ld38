@@ -10,7 +10,7 @@ export default class extends Phaser.State {
         this.title = new Phaser.Text(
             this.game,
             this.game.width / 2,
-            this.game.height / 2 - 100, letterSpacing('STARTSCREEN', 1));
+            this.game.height / 2 - 100, letterSpacing('BACK TO WORK', 1));
         this.title.font = 'Courier New';
         this.title.padding.set(10, 16);
         this.title.fontSize = 60;
@@ -23,7 +23,7 @@ export default class extends Phaser.State {
             this.game,
             this.game.width / 2,
             this.game.height / 2 - 40,
-            letterSpacing('Press X to start', 2)
+            letterSpacing('Press Q to start', 2)
         );
         this.start.font = 'Courier New';
         this.start.padding.set(10, 16);
@@ -33,12 +33,16 @@ export default class extends Phaser.State {
         this.start.anchor.setTo(0.5);
         this.game.add.existing(this.start);
 
-        this.game.input.keyboard.addKey(Phaser.Keyboard.X).onDown.add(() => {
+        this.game.add.image(300,500,'title');
+
+
+
+        this.game.input.keyboard.addKey(Phaser.Keyboard.Q).onDown.add(() => {
             this.state.start('Game');
         });
 
         //TODO remove
-        this.state.start('Game');
+        //this.state.start('Game');
     }
     update() {}
 

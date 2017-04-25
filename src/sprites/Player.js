@@ -42,6 +42,7 @@ export default class extends Phaser.Sprite {
         if ((this.cursors.up.isDown) &&
             (this.body.onFloor() || this.body.touching.down) &&
             this.canJump) {
+            this.game.sound.play('jump');
             this.body.velocity.y = -900;
             idle = false;
             this.canJump = false;

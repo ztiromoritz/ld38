@@ -29,9 +29,12 @@ export default class extends Phaser.State {
     create() {
         const game = this.game;
 
+        this.game.add.audio('whilee').loopFull();
+        this.game.add.audio('knister').loopFull();
 
 
-        this.player = new Player({ game, x: 100, y: 100 });
+
+        this.player = new Player({ game, x: 660, y: 400 });
 
         // "Platformer"
         this.map = this.game.add.tilemap('tilemap');
@@ -155,10 +158,12 @@ export default class extends Phaser.State {
         */
 
         //DEBUG: light
+        /*
         this.game.input.keyboard.addKey(Phaser.Keyboard.A).onDown.add(() => { this.lights.getAt(0).toggle() });
         this.game.input.keyboard.addKey(Phaser.Keyboard.S).onDown.add(() => { this.lights.getAt(1).toggle() });
         this.game.input.keyboard.addKey(Phaser.Keyboard.D).onDown.add(() => { this.lights.getAt(2).toggle() });
         this.game.input.keyboard.addKey(Phaser.Keyboard.F).onDown.add(() => { this.lights.getAt(3).toggle() });
+        */
 
     }
 
@@ -224,6 +229,7 @@ export default class extends Phaser.State {
                     if (_.isNumber(color)) {
                         carA.changeColor(color);
                         carB.changeColor(color);
+                        this.game.sound.play('plop');
                     } else {
                         //TODO: immortal flag
                     }
@@ -238,7 +244,7 @@ export default class extends Phaser.State {
 
     render() {
         if (__DEV__) {
-            this.game.debug.text(this.game.time.fps || '--', 2, 14, "#00ff00");
+            //this.game.debug.text(this.game.time.fps || '--', 2, 14, "#00ff00");
             //this.game.debug.body(this.player)
         }
     }
